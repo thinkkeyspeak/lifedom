@@ -5,6 +5,8 @@ class SiteController extends Controller
 	/**
 	 * Declares class-based actions.
 	 */
+	public $layout='//layouts/column2'; //sets 2 columns for whole site
+	
 	public function actions()
 	{
 		return array(
@@ -30,6 +32,7 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
+
 	}
 
 	/**
