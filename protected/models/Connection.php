@@ -15,6 +15,21 @@ class Connection extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	const STATUS_PENDING=1;
+	const STATUS_APPROVED=2;
+	const STATUS_REJECTED=3;
+
+	protected function beforeSave()
+	{
+		if(parent::beforeSave())
+			{
+				$this->connector=Yii::app()->user->id;
+				return true;
+			}
+		else
+			return false;
+	}
+
 	public function tableName()
 	{
 		return '{{connection}}';
@@ -28,11 +43,12 @@ class Connection extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('connector, connectee, type, status', 'required'),
-			array('connector, connectee, type, status', 'numerical', 'integerOnly'=>true),
+			array('connectee, type, status', 'required'),
+			array('connectee, type, status', 'numerical', 'integerOnly'=>true),
+			array('status', 'in', 'range'=>array(1,2,3)),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, connector, connectee, type, status', 'safe', 'on'=>'search'),
+			array('connector, connectee, status, type', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -44,6 +60,7 @@ class Connection extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'connector' => array(self::BELONGS_TO, 'User', 'connector'),
 		);
 	}
 

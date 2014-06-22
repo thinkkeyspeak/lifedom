@@ -20,27 +20,17 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'connector'); ?>
-		<?php echo $form->textField($model,'connector'); ?>
-		<?php echo $form->error($model,'connector'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'connectee'); ?>
 		<?php echo $form->textField($model,'connectee'); ?>
 		<?php echo $form->error($model,'connectee'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'type'); ?>
-		<?php echo $form->textField($model,'type'); ?>
-		<?php echo $form->error($model,'type'); ?>
+		<?php echo $form->dropDownList($model,'type',Lookup::items('Connection')); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
-		<?php echo $form->error($model,'status'); ?>
+		<?php echo $form->dropDownList($model,'status',Lookup::items('ConnectionStatus')); ?>
 	</div>
 
 	<div class="row buttons">

@@ -158,3 +158,121 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/lifedom/index.php?r=user/create.php
 ---
+2014/06/20 13:54:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('user/admin')
+#9 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/stevenrho/Documents/lifedom/webroot/lifedom/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/lifedom/index.php?r=user/admin
+HTTP_REFERER=http://localhost/lifedom/index.php
+---
+2014/06/20 14:04:48 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('connection/admi...')
+#9 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/stevenrho/Documents/lifedom/webroot/lifedom/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/lifedom/index.php?r=connection/admin
+HTTP_REFERER=http://localhost/lifedom/index.php?r=connection/create
+---
+2014/06/21 04:15:35 [error] [exception.CException] exception 'CException' with message 'User and its behaviors do not have a method or closure named "verifyPassword".' in /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('verifyPassword', Array)
+#1 /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/components/UserIdentity.php(22): CActiveRecord->__call('verifyPassword', Array)
+#2 /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/components/UserIdentity.php(22): User->verifyPassword('doyen3')
+#3 /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#4 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/controllers/SiteController.php(97): CModel->validate()
+#8 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#9 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(282): CController->run('login')
+#13 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Users/stevenrho/Documents/lifedom/webroot/lifedom/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/lifedom/index.php?r=site/login
+HTTP_REFERER=http://localhost/lifedom/index.php?r=site/login
+---
+2014/06/21 04:21:07 [error] [php] Undefined variable: password (/Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/controllers/UserController.php:72)
+Stack trace:
+#0 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#1 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#4 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(265): UserController->runActionWithFilters()
+#7 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(282): UserController->run()
+#8 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/stevenrho/Documents/lifedom/webroot/lifedom/index.php(13): CWebApplication->run()
+REQUEST_URI=/lifedom/index.php?r=user/create
+in /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/controllers/UserController.php (72)
+in /Users/stevenrho/Documents/lifedom/webroot/lifedom/index.php (13)
+2014/06/21 04:23:03 [error] [php] Undefined variable: password (/Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/controllers/UserController.php:72)
+Stack trace:
+#0 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#1 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#4 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(265): UserController->runActionWithFilters()
+#7 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(282): UserController->run()
+#8 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/stevenrho/Documents/lifedom/webroot/lifedom/index.php(13): CWebApplication->run()
+REQUEST_URI=/lifedom/index.php?r=user/create
+in /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/controllers/UserController.php (72)
+in /Users/stevenrho/Documents/lifedom/webroot/lifedom/index.php (13)
+2014/06/21 05:58:28 [error] [exception.CException] exception 'CException' with message 'CActiveForm and its behaviors do not have a method or closure named "activetextField".' in /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/views/connection/_form.php(24): CComponent->__call('activetextField', Array)
+#1 /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/views/connection/_form.php(24): CActiveForm->activetextField(Object(Connection), 'connectee')
+#2 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CBaseController.php(126): require('/Users/stevenrh...')
+#3 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/stevenrh...', Array, true)
+#4 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(869): CBaseController->renderFile('/Users/stevenrh...', Array, true)
+#5 /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/views/connection/create.php(18): CController->renderPartial('_form', Array)
+#6 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CBaseController.php(126): require('/Users/stevenrh...')
+#7 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Users/stevenrh...', Array, true)
+#8 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(869): CBaseController->renderFile('/Users/stevenrh...', Array, true)
+#9 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#10 /Users/stevenrho/Documents/lifedom/webroot/lifedom/protected/controllers/ConnectionController.php(79): CController->render('create', Array)
+#11 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/actions/CInlineAction.php(49): ConnectionController->actionCreate()
+#12 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#15 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(291): CFilterChain->run()
+#19 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#21 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('connection/crea...')
+#22 /Users/stevenrho/Documents/lifedom/webroot/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /Users/stevenrho/Documents/lifedom/webroot/lifedom/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/lifedom/index.php?r=connection/create
+HTTP_REFERER=http://localhost/lifedom/index.php?r=user/admin
+---
