@@ -32,6 +32,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			'class'=>'WebUser', // WebUser component that includes accessRules() filter
 		),
 		// uncomment the following to enable URLs in path-format
 		/*

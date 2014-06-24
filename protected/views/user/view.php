@@ -28,5 +28,6 @@ $this->menu=array(
 		'family_name',
 		'dob',
 		'pob',
+		'role',
 	),
 )); ?>

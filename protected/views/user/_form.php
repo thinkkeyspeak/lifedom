@@ -55,6 +55,12 @@
 		<?php echo $form->error($model,'pob'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'role'); ?>
+		<?php echo $form->textField($model,'role',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->error($model,'role'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

@@ -11,6 +11,7 @@
  * @property string $family_name
  * @property integer $dob
  * @property string $pob
+ * @property text $roles
  */
 class User extends CActiveRecord
 {
@@ -31,12 +32,12 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, first_name, family_name, dob, pob', 'required'),
+			array('username, password, first_name, family_name, dob, pob, role', 'required'),
 			array('dob', 'numerical', 'integerOnly'=>true),
 			array('username, password, first_name, family_name, pob', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, first_name, family_name, dob, pob', 'safe', 'on'=>'search'),
+			array('username, first_name, family_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,6 +65,7 @@ class User extends CActiveRecord
 			'family_name' => 'Family Name',
 			'dob' => 'Dob',
 			'pob' => 'Pob',
+			'roles' => 'Roles',
 		);
 	}
 
@@ -85,13 +87,9 @@ class User extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
 		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
 		$criteria->compare('first_name',$this->first_name,true);
 		$criteria->compare('family_name',$this->family_name,true);
-		$criteria->compare('dob',$this->dob);
-		$criteria->compare('pob',$this->pob,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -117,16 +115,6 @@ class User extends CActiveRecord
 	public function hashPassword($password)
 	{
 		return CPasswordHelper::hashPassword($password);
-	}
-
-	public function beforeSave()
-	{
-		if (parent::beforeSave())
-		{
-			$this->password=$this->hashPassword($this->password);
-			return true;
-		}
-		return false;
 	}
 
 }
