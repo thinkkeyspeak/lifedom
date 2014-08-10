@@ -16,15 +16,18 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Connection #<?php echo $model->id; ?></h1>
+<h1>Connection #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
-		'connector',
-		'connectee',
+		'connectorObj.first_name',
+		'connectorObj.family_name',
+		'connecteeObj.first_name',
+		'connecteeObj.family_name',
 		'type',
 		'status',
 	),
 )); ?>
+
+

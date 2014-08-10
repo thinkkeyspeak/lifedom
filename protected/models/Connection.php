@@ -23,7 +23,11 @@ class Connection extends CActiveRecord
 	{
 		if(parent::beforeSave())
 			{
-				$this->connector=Yii::app()->user->id;
+				if($this->isNewRecord)
+				{
+					$this->connector=Yii::app()->user->id;//use session user id as connector
+					$this->status=1; //submit connection as 'pending'
+				}
 				return true;
 			}
 		else
@@ -43,8 +47,8 @@ class Connection extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('connectee, type, status', 'required'),
-			array('connectee, type, status', 'numerical', 'integerOnly'=>true),
+			array('type', 'required'),
+			array('type, status', 'numerical', 'integerOnly'=>true),
 			array('status', 'in', 'range'=>array(1,2,3)),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -60,7 +64,8 @@ class Connection extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'connector' => array(self::BELONGS_TO, 'User', 'connector'),
+			'connectorObj'=>array(self::BELONGS_TO,'User','connector'),
+			'connecteeObj'=>array(self::BELONGS_TO,'User','connectee'),
 		);
 	}
 
@@ -70,11 +75,15 @@ class Connection extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Connection #',
 			'connector' => 'Connector',
 			'connectee' => 'Connectee',
-			'type' => 'Type',
+			'type' => 'Relationship',
 			'status' => 'Status',
+			'connectorObj.first_name' =>'Connector First Name',
+			'connectorObj.family_name' =>'Connector Family Name',
+			'connecteeObj.first_name'=>'Connectee First Name',
+			'connecteeObj.family_name'=>'Connectee Family Name',
 		);
 	}
 
@@ -117,4 +126,5 @@ class Connection extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
 }

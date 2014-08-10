@@ -49,7 +49,10 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		);
+			'connections'=>array(self::HAS_MANY, 'Connection', 'connector'),
+			'posts'=>array(self::HAS_MANY, 'Post','author_id',
+			//'postCount'=>array(self::STAT, 'Post','author_id'),
+		));
 	}
 
 	/**
@@ -63,8 +66,8 @@ class User extends CActiveRecord
 			'password' => 'Password',
 			'first_name' => 'First Name',
 			'family_name' => 'Family Name',
-			'dob' => 'Dob',
-			'pob' => 'Pob',
+			'dob' => 'Born',
+			'pob' => 'Place of Birth',
 			'roles' => 'Roles',
 		);
 	}

@@ -46,10 +46,20 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'connector',
-		'connectee',
-		'type',
-		'status',
+		'connectorObj.first_name',
+		'connectorObj.family_name',
+		'connecteeObj.first_name',
+		'connecteeObj.family_name',
+		array(
+			'name'=>'type',
+			'value'=>'Lookup::item("Connection",$data->type)',
+			'filter'=>Lookup::items('Connection'),
+		),
+		array(
+			'name'=>'status',
+			'value'=>'Lookup::item("ConnectionStatus",$data->status)',
+			'filter'=>Lookup::items('ConnectionStatus'),
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),

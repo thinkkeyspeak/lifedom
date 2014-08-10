@@ -10,7 +10,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('connector')); ?>:</b>
-	<?php echo CHtml::encode($data->connector); ?>
+	<?php echo CHtml::encode($data->id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('connectee')); ?>:</b>

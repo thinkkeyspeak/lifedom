@@ -8,6 +8,16 @@ class ConnectionController extends Controller
 	 */
 	public $layout='//layouts/column2';
 
+	/*public function actions()
+	{
+		return array(
+				'class'=>'application.extensions.EAutoCompleteAction',
+				'model'=>'Connection',
+				'attribute'=>'id',
+				);
+	}
+	*/
+
 	/**
 	 * @return array action filters
 	 */
@@ -28,7 +38,7 @@ class ConnectionController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','aclist'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -44,6 +54,7 @@ class ConnectionController extends Controller
 			),
 		);
 	}
+
 
 	/**
 	 * Displays a particular model.
@@ -62,7 +73,7 @@ class ConnectionController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Connection;
+		//$model=new Connection;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -89,7 +100,7 @@ class ConnectionController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Connection']))
 		{

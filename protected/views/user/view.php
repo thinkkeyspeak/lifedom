@@ -16,18 +16,27 @@ $this->menu=array(
 );
 ?>
 
-<h1>View User #<?php echo $model->id; ?></h1>
+<h1><?php echo $model->first_name; ?> <?php echo $model->family_name; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php
+$this->beginWidget('webroot.protected.components.ConnectWidget', array(
+	'currentProfile'=>$model,
+	));
+$this->endWidget(); ?>
+
+<?php 
+$this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
-		'username',
-		'password',
-		'first_name',
-		'family_name',
 		'dob',
 		'pob',
-		'role',
 	),
 )); ?>
+
+<div id="posts"> 
+	<?php //Lists posts by author. Change to 'destination' field instead.?>
+		<?php $this->renderPartial('_posts', array(
+			'user'=>$model,
+			'posts'=>$model->posts,
+			)); ?>
+</div>
