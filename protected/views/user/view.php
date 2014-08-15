@@ -2,6 +2,7 @@
 /* @var $this UserController */
 /* @var $model User */
 
+/*
 $this->breadcrumbs=array(
 	'Users'=>array('index'),
 	$model->id,
@@ -14,26 +15,26 @@ $this->menu=array(
 	array('label'=>'Delete User', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage User', 'url'=>array('admin')),
 );
+*/
 ?>
 
-<h1><?php echo $model->first_name; ?> <?php echo $model->family_name; ?></h1>
+<div id="username">
+	<h1><?php echo $model->first_name; ?> <?php echo $model->family_name; ?></h1>
+</div>
 
+<div id="connectwidget">
 <?php
 $this->beginWidget('webroot.protected.components.ConnectWidget', array(
 	'currentProfile'=>$model,
 	));
 $this->endWidget(); ?>
+</div>
 
-<?php 
-$this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'dob',
-		'pob',
-	),
-)); ?>
+<div id="summaryflag">
+	<?php echo 'BORN ON '.$model->dob ; ?>
+</div>
 
-<div id="posts"> 
+<div class="posts"> 
 	<?php //Lists posts by author. Change to 'destination' field instead.?>
 		<?php $this->renderPartial('_posts', array(
 			'user'=>$model,
